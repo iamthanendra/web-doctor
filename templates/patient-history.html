@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if session.patient_email %}
+    You are Register {{ session.patient_username }} <a href="/logout-patients">logout</a>.
+
+    <table border="1">
+        <tr>
+            <th>Symptoms</th>
+            <th>Diseases</th>
+            <th>Checking Time (Data_Time)</th>
+            <th>Doctor Name</th>
+            <th>Doctor Email</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                {% for column in row %}
+                    <td>{{column}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+    <script>
+        alert('Please Log in')
+        location.href = 'patient-auth'
+    </script>
+    {% endif %}
+    
+</body>
+</html>

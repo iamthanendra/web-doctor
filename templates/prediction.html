@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if session.patient_email %}
+        {{mylist}}<br/><br/>
+        {{summary1}}<br/><br/>
+        {{summary2}}<br/><br/>
+        <a href='Gererate-Report'><button>Generate Report</button></a>
+    {% else %}
+        <script>
+            alert('Please Log in')
+            location.href = 'patient-auth'
+        </script>
+    {% endif %}
+</body>
+</html>

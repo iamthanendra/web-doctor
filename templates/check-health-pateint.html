@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if session.patient_email %}
+    <a href="/logout-patients">logout</a><br/>
+    <form action="predict" method="post">
+        <label><input type='checkbox' id='yellow sputum' name='symptoms'  value='0' /> yellow sputum</label><br/>
+        <label><input type='checkbox' id='cardiovascular finding' name='symptoms'  value='1' /> cardiovascular finding</label><br/>
+        <label><input type='checkbox' id='hypercapnia' name='symptoms'  value='2' /> hypercapnia</label><br/>
+        <label><input type='checkbox' id='heavy feeling' name='symptoms'  value='3' /> heavy feeling</label><br/>
+        <label><input type='checkbox' id='ambidexterity' name='symptoms'  value='4' /> ambidexterity</label><br/>
+        <label><input type='checkbox' id='polymyalgia' name='symptoms'  value='5' /> polymyalgia</label><br/>
+        <label><input type='checkbox' id='stinging sensation' name='symptoms'  value='6' /> stinging sensation</label><br/>
+        <label><input type='checkbox' id='shortness of breath' name='symptoms'  value='7' /> shortness of breath</label><br/>
+        <label><input type='checkbox' id='palpitation' name='symptoms'  value='8' /> palpitation</label><br/>
+        <label><input type='checkbox' id='hypokalemia' name='symptoms'  value='9' /> hypokalemia</label><br/>
+        <label><input type='checkbox' id='prostatism' name='symptoms'  value='10' /> prostatism</label><br/>
+        <label><input type='checkbox' id='blanch' name='symptoms'  value='11' /> blanch</label><br/>
+        <label><input type='checkbox' id='monocytosis' name='symptoms'  value='12' /> monocytosis</label><br/>
+        <label><input type='checkbox' id='noisy respiration' name='symptoms'  value='13' /> noisy respiration</label><br/>
+        <label><input type='checkbox' id='pallor' name='symptoms'  value='14' /> pallor</label><br/>
+        <label><input type='checkbox' id='feces in rectum' name='symptoms'  value='15' /> feces in rectum</label><br/>
+        <label><input type='checkbox' id='sneeze' name='symptoms'  value='16' /> sneeze</label><br/>
+        <label><input type='checkbox' id='feeling hopeless' name='symptoms'  value='17' /> feeling hopeless</label><br/>
+        <label><input type='checkbox' id='sputum purulent' name='symptoms'  value='18' /> sputum purulent</label><br/>
+        <label><input type='checkbox' id='swelling' name='symptoms'  value='19' /> swelling</label><br/>
+        <label><input type='checkbox' id='left atrial hypertrophy' name='symptoms'  value='20' /> left atrial hypertrophy</label><br/>
+        <label><input type='checkbox' id='welt' name='symptoms'  value='21' /> welt</label><br/>
+        <label><input type='checkbox' id='intermenstrual heavy bleeding' name='symptoms'  value='22' /> intermenstrual heavy bleeding</label><br/>
+        <label><input type='checkbox' id='ecchymosis' name='symptoms'  value='23' /> ecchymosis</label><br/>
+        <label><input type='checkbox' id='phonophobia' name='symptoms'  value='24' /> phonophobia</label><br/>
+        <label><input type='checkbox' id='fear of falling' name='symptoms'  value='25' /> fear of falling</label><br/>
+        <label><input type='checkbox' id='rhonchus' name='symptoms'  value='26' /> rhonchus</label><br/>
+        <label><input type='checkbox' id='inappropriate affect' name='symptoms'  value='27' /> inappropriate affect</label><br/>
+        <label><input type='checkbox' id='anosmia' name='symptoms'  value='28' /> anosmia</label><br/>
+        <label><input type='checkbox' id='adverse effect' name='symptoms'  value='29' /> adverse effect</label><br/>
+        <label><input type='checkbox' id='hacking cough' name='symptoms'  value='30' /> hacking cough</label><br/>
+        <label><input type='checkbox' id='lameness' name='symptoms'  value='31' /> lameness</label><br/>
+        <label><input type='checkbox' id='scar tissue' name='symptoms'  value='32' /> scar tissue</label><br/>
+        <label><input type='checkbox' id='wheezing' name='symptoms'  value='33' /> wheezing</label><br/>
+        <label><input type='checkbox' id='breath sounds decreased' name='symptoms'  value='34' /> breath sounds decreased</label><br/>
+        <label><input type='checkbox' id='Heberden's node' name='symptoms'  value='35' /> Heberden's node</label><br/>
+        <label><input type='checkbox' id='hypothermia, natural' name='symptoms'  value='36' /> hypothermia, natural</label><br/>
+        <label><input type='checkbox' id='hyperventilation' name='symptoms'  value='37' /> hyperventilation</label><br/>
+        <label><input type='checkbox' id='neologism' name='symptoms'  value='38' /> neologism</label><br/>
+        <label><input type='checkbox' id='chest tightness' name='symptoms'  value='39' /> chest tightness</label><br/>
+        <label><input type='checkbox' id='atypia' name='symptoms'  value='40' /> atypia</label><br/>
+        <label><input type='checkbox' id='incoherent' name='symptoms'  value='41' /> incoherent</label><br/>
+        <label><input type='checkbox' id='hemianopsia homonymous' name='symptoms'  value='42' /> hemianopsia homonymous</label><br/>
+        <label><input type='checkbox' id='mydriasis' name='symptoms'  value='43' /> mydriasis</label><br/>
+        <label><input type='checkbox' id='constipation' name='symptoms'  value='44' /> constipation</label><br/>
+        <label><input type='checkbox' id='fatigue' name='symptoms'  value='45' /> fatigue</label><br/>
+        <label><input type='checkbox' id='pain foot' name='symptoms'  value='46' /> pain foot</label><br/>
+        <label><input type='checkbox' id='symptom aggravating factors' name='symptoms'  value='47' /> symptom aggravating factors</label><br/>
+        <label><input type='checkbox' id='unresponsiveness' name='symptoms'  value='48' /> unresponsiveness</label><br/>
+        <label><input type='checkbox' id='heme positive' name='symptoms'  value='49' /> heme positive</label><br/>
+        <label><input type='checkbox' id='pin-point pupils' name='symptoms'  value='50' /> pin-point pupils</label><br/>
+        <label><input type='checkbox' id='stool color yellow' name='symptoms'  value='51' /> stool color yellow</label><br/>
+        <label><input type='checkbox' id='groggy' name='symptoms'  value='52' /> groggy</label><br/>
+        <label><input type='checkbox' id='frail' name='symptoms'  value='53' /> frail</label><br/>
+        <label><input type='checkbox' id='tremor' name='symptoms'  value='54' /> tremor</label><br/>
+        <label><input type='checkbox' id='mass of body structure' name='symptoms'  value='55' /> mass of body structure</label><br/>
+        <label><input type='checkbox' id='large-for-dates fetus' name='symptoms'  value='56' /> large-for-dates fetus</label><br/>
+        <label><input type='checkbox' id='general discomfort' name='symptoms'  value='57' /> general discomfort</label><br/>
+        <label><input type='checkbox' id='feeling strange' name='symptoms'  value='58' /> feeling strange</label><br/>
+        <label><input type='checkbox' id='immobile' name='symptoms'  value='59' /> immobile</label><br/>
+        <label><input type='checkbox' id='redness' name='symptoms'  value='60' /> redness</label><br/>
+        <label><input type='checkbox' id='asymptomatic' name='symptoms'  value='61' /> asymptomatic</label><br/>
+        <label><input type='checkbox' id='worry' name='symptoms'  value='62' /> worry</label><br/>
+        <label><input type='checkbox' id='urinary hesitation' name='symptoms'  value='63' /> urinary hesitation</label><br/>
+        <label><input type='checkbox' id='gravida 0' name='symptoms'  value='64' /> gravida 0</label><br/>
+        <label><input type='checkbox' id='history of - blackout' name='symptoms'  value='65' /> history of - blackout</label><br/>
+        <label><input type='checkbox' id='hoard' name='symptoms'  value='66' /> hoard</label><br/>
+        <label><input type='checkbox' id='side pain' name='symptoms'  value='67' /> side pain</label><br/>
+        <label><input type='checkbox' id='hematocrit decreased' name='symptoms'  value='68' /> hematocrit decreased</label><br/>
+        <label><input type='checkbox' id='moan' name='symptoms'  value='69' /> moan</label><br/>
+        <label><input type='checkbox' id='unhappy' name='symptoms'  value='70' /> unhappy</label><br/>
+        <label><input type='checkbox' id='dysdiadochokinesia' name='symptoms'  value='71' /> dysdiadochokinesia</label><br/>
+        <label><input type='checkbox' id='heavy legs' name='symptoms'  value='72' /> heavy legs</label><br/>
+        <label><input type='checkbox' id='unconscious state' name='symptoms'  value='73' /> unconscious state</label><br/>
+        <label><input type='checkbox' id='headache' name='symptoms'  value='74' /> headache</label><br/>
+        <label><input type='checkbox' id='bradykinesia' name='symptoms'  value='75' /> bradykinesia</label><br/>
+        <label><input type='checkbox' id='paralyse' name='symptoms'  value='76' /> paralyse</label><br/>
+        <label><input type='checkbox' id='bedridden' name='symptoms'  value='77' /> bedridden</label><br/>
+        <label><input type='checkbox' id='hirsutism' name='symptoms'  value='78' /> hirsutism</label><br/>
+        <label><input type='checkbox' id='clammy skin' name='symptoms'  value='79' /> clammy skin</label><br/>
+        <label><input type='checkbox' id='pain abdominal' name='symptoms'  value='80' /> pain abdominal</label><br/>
+        <label><input type='checkbox' id='intoxication' name='symptoms'  value='81' /> intoxication</label><br/>
+        <label><input type='checkbox' id='mediastinal shift' name='symptoms'  value='82' /> mediastinal shift</label><br/>
+        <label><input type='checkbox' id='cardiomegaly' name='symptoms'  value='83' /> cardiomegaly</label><br/>
+        <label><input type='checkbox' id='decreased body weight' name='symptoms'  value='84' /> decreased body weight</label><br/>
+        <label><input type='checkbox' id='breakthrough pain' name='symptoms'  value='85' /> breakthrough pain</label><br/>
+        <label><input type='checkbox' id='achalasia' name='symptoms'  value='86' /> achalasia</label><br/>
+        <label><input type='checkbox' id='rambling speech' name='symptoms'  value='87' /> rambling speech</label><br/>
+        <label><input type='checkbox' id='claudication' name='symptoms'  value='88' /> claudication</label><br/>
+        <label><input type='checkbox' id='rapid shallow breathing' name='symptoms'  value='89' /> rapid shallow breathing</label><br/>
+        <label><input type='checkbox' id='indifferent mood' name='symptoms'  value='90' /> indifferent mood</label><br/>
+        <label><input type='checkbox' id='agitation' name='symptoms'  value='91' /> agitation</label><br/>
+        <label><input type='checkbox' id='no status change' name='symptoms'  value='92' /> no status change</label><br/>
+        <label><input type='checkbox' id='dyspnea' name='symptoms'  value='93' /> dyspnea</label><br/>
+        <label><input type='checkbox' id='lesion' name='symptoms'  value='94' /> lesion</label><br/>
+        <label><input type='checkbox' id='nasal discharge present' name='symptoms'  value='95' /> nasal discharge present</label><br/>
+        <label><input type='checkbox' id='lightheadedness' name='symptoms'  value='96' /> lightheadedness</label><br/>
+        <label><input type='checkbox' id='r wave feature' name='symptoms'  value='97' /> r wave feature</label><br/>
+        <label><input type='checkbox' id='hematochezia' name='symptoms'  value='98' /> hematochezia</label><br/>
+        <label><input type='checkbox' id='titubation' name='symptoms'  value='99' /> titubation</label><br/>
+        <label><input type='checkbox' id='lethargy' name='symptoms'  value='100' /> lethargy</label><br/>
+        <label><input type='checkbox' id='' name='symptoms'  value='101' /> </label><br/>
+        <label><input type='checkbox' id='alcohol binge episode' name='symptoms'  value='102' /> alcohol binge episode</label><br/>
+        <label><input type='checkbox' id='cushingoid facies' name='symptoms'  value='103' /> cushingoid facies</label><br/>
+        <label><input type='checkbox' id='focal seizures' name='symptoms'  value='104' /> focal seizures</label><br/>
+        <label><input type='checkbox' id='hyponatremia' name='symptoms'  value='105' /> hyponatremia</label><br/>
+        <label><input type='checkbox' id='flushing' name='symptoms'  value='106' /> flushing</label><br/>
+        <label><input type='checkbox' id='jugular venous distention' name='symptoms'  value='107' /> jugular venous distention</label><br/>
+        <label><input type='checkbox' id='bedridden' name='symptoms'  value='108' /> bedridden</label><br/>
+        <label><input type='checkbox' id='myoclonus' name='symptoms'  value='109' /> myoclonus</label><br/>
+        <label><input type='checkbox' id='passed stones' name='symptoms'  value='110' /> passed stones</label><br/>
+        <label><input type='checkbox' id='satiety early' name='symptoms'  value='111' /> satiety early</label><br/>
+        <label><input type='checkbox' id='excruciating pain' name='symptoms'  value='112' /> excruciating pain</label><br/>
+        <label><input type='checkbox' id='pain chest' name='symptoms'  value='113' /> pain chest</label><br/>
+        <label><input type='checkbox' id='nightmare' name='symptoms'  value='114' /> nightmare</label><br/>
+        <label><input type='checkbox' id='hypokinesia' name='symptoms'  value='115' /> hypokinesia</label><br/>
+        <label><input type='checkbox' id='out of breath' name='symptoms'  value='116' /> out of breath</label><br/>
+        <label><input type='checkbox' id='dysuria' name='symptoms'  value='117' /> dysuria</label><br/>
+        <label><input type='checkbox' id='sleeplessness' name='symptoms'  value='118' /> sleeplessness</label><br/>
+        <label><input type='checkbox' id='terrify' name='symptoms'  value='119' /> terrify</label><br/>
+        <label><input type='checkbox' id='retch' name='symptoms'  value='120' /> retch</label><br/>
+        <label><input type='checkbox' id='cardiovascular event' name='symptoms'  value='121' /> cardiovascular event</label><br/>
+        <label><input type='checkbox' id='hypertonicity' name='symptoms'  value='122' /> hypertonicity</label><br/>
+        <label><input type='checkbox' id='nervousness' name='symptoms'  value='123' /> nervousness</label><br/>
+        <label><input type='checkbox' id='giddy mood' name='symptoms'  value='124' /> giddy mood</label><br/>
+        <label><input type='checkbox' id='muscle twitch' name='symptoms'  value='125' /> muscle twitch</label><br/>
+        <label><input type='checkbox' id='abscess bacterial' name='symptoms'  value='126' /> abscess bacterial</label><br/>
+        <label><input type='checkbox' id='pulse absent' name='symptoms'  value='127' /> pulse absent</label><br/>
+        <label><input type='checkbox' id='pain neck' name='symptoms'  value='128' /> pain neck</label><br/>
+        <label><input type='checkbox' id='mood depressed' name='symptoms'  value='129' /> mood depressed</label><br/>
+        <label><input type='checkbox' id='scratch marks' name='symptoms'  value='130' /> scratch marks</label><br/>
+        <label><input type='checkbox' id='aura' name='symptoms'  value='131' /> aura</label><br/>
+        <label><input type='checkbox' id='sinus rhythm' name='symptoms'  value='132' /> sinus rhythm</label><br/>
+        <label><input type='checkbox' id='awakening early' name='symptoms'  value='133' /> awakening early</label><br/>
+        <label><input type='checkbox' id='vision blurred' name='symptoms'  value='134' /> vision blurred</label><br/>
+        <label><input type='checkbox' id='gravida 10' name='symptoms'  value='135' /> gravida 10</label><br/>
+        <label><input type='checkbox' id='st segment elevation' name='symptoms'  value='136' /> st segment elevation</label><br/>
+        <label><input type='checkbox' id='abdominal tenderness' name='symptoms'  value='137' /> abdominal tenderness</label><br/>
+        <label><input type='checkbox' id='retropulsion' name='symptoms'  value='138' /> retropulsion</label><br/>
+        <label><input type='checkbox' id='dizzy spells' name='symptoms'  value='139' /> dizzy spells</label><br/>
+        <label><input type='checkbox' id='asthenia' name='symptoms'  value='140' /> asthenia</label><br/>
+        <label><input type='checkbox' id='decompensation' name='symptoms'  value='141' /> decompensation</label><br/>
+        <label><input type='checkbox' id='systolic ejection murmur' name='symptoms'  value='142' /> systolic ejection murmur</label><br/>
+        <label><input type='checkbox' id='hemodynamically stable' name='symptoms'  value='143' /> hemodynamically stable</label><br/>
+        <label><input type='checkbox' id='fever' name='symptoms'  value='144' /> fever</label><br/>
+        <label><input type='checkbox' id='absences finding' name='symptoms'  value='145' /> absences finding</label><br/>
+        <label><input type='checkbox' id='nasal flaring' name='symptoms'  value='146' /> nasal flaring</label><br/>
+        <label><input type='checkbox' id='dizziness' name='symptoms'  value='147' /> dizziness</label><br/>
+        <label><input type='checkbox' id='abdomen acute' name='symptoms'  value='148' /> abdomen acute</label><br/>
+        <label><input type='checkbox' id='motor retardation' name='symptoms'  value='149' /> motor retardation</label><br/>
+        <label><input type='checkbox' id='hypometabolism' name='symptoms'  value='150' /> hypometabolism</label><br/>
+        <label><input type='checkbox' id='hypoproteinemia' name='symptoms'  value='151' /> hypoproteinemia</label><br/>
+        <label><input type='checkbox' id='clumsiness' name='symptoms'  value='152' /> clumsiness</label><br/>
+        <label><input type='checkbox' id='t wave inverted' name='symptoms'  value='153' /> t wave inverted</label><br/>
+        <label><input type='checkbox' id='macule' name='symptoms'  value='154' /> macule</label><br/>
+        <label><input type='checkbox' id='hepatomegaly' name='symptoms'  value='155' /> hepatomegaly</label><br/>
+        <label><input type='checkbox' id='hypersomnia' name='symptoms'  value='156' /> hypersomnia</label><br/>
+        <label><input type='checkbox' id='photophobia' name='symptoms'  value='157' /> photophobia</label><br/>
+        <label><input type='checkbox' id='rale' name='symptoms'  value='158' /> rale</label><br/>
+        <label><input type='checkbox' id='transsexual' name='symptoms'  value='159' /> transsexual</label><br/>
+        <label><input type='checkbox' id='non-productive cough' name='symptoms'  value='160' /> non-productive cough</label><br/>
+        <label><input type='checkbox' id='energy increased' name='symptoms'  value='161' /> energy increased</label><br/>
+        <label><input type='checkbox' id='no known drug allergies' name='symptoms'  value='162' /> no known drug allergies</label><br/>
+        <label><input type='checkbox' id='projectile vomiting' name='symptoms'  value='163' /> projectile vomiting</label><br/>
+        <label><input type='checkbox' id='pansystolic murmur' name='symptoms'  value='164' /> pansystolic murmur</label><br/>
+        <label><input type='checkbox' id='tired' name='symptoms'  value='165' /> tired</label><br/>
+        <label><input type='checkbox' id='homelessness' name='symptoms'  value='166' /> homelessness</label><br/>
+        <label><input type='checkbox' id='extreme exhaustion' name='symptoms'  value='167' /> extreme exhaustion</label><br/>
+        <label><input type='checkbox' id='scleral icterus' name='symptoms'  value='168' /> scleral icterus</label><br/>
+        <label><input type='checkbox' id='egophony' name='symptoms'  value='169' /> egophony</label><br/>
+        <label><input type='checkbox' id='overweight' name='symptoms'  value='170' /> overweight</label><br/>
+        <label><input type='checkbox' id='breech presentation' name='symptoms'  value='171' /> breech presentation</label><br/>
+        <label><input type='checkbox' id='room spinning' name='symptoms'  value='172' /> room spinning</label><br/>
+        <label><input type='checkbox' id='gag' name='symptoms'  value='173' /> gag</label><br/>
+        <label><input type='checkbox' id='mental status changes' name='symptoms'  value='174' /> mental status changes</label><br/>
+        <label><input type='checkbox' id='flare' name='symptoms'  value='175' /> flare</label><br/>
+        <label><input type='checkbox' id='sweat' name='symptoms'  value='176' /> sweat</label><br/>
+        <label><input type='checkbox' id='urinoma' name='symptoms'  value='177' /> urinoma</label><br/>
+        <label><input type='checkbox' id='cicatrisation' name='symptoms'  value='178' /> cicatrisation</label><br/>
+        <label><input type='checkbox' id='orthostasis' name='symptoms'  value='179' /> orthostasis</label><br/>
+        <label><input type='checkbox' id='general unsteadiness' name='symptoms'  value='180' /> general unsteadiness</label><br/>
+        <label><input type='checkbox' id='behavior showing increased motor activity' name='symptoms'  value='181' /> behavior showing increased motor activity</label><br/>
+        <label><input type='checkbox' id='haemorrhage' name='symptoms'  value='182' /> haemorrhage</label><br/>
+        <label><input type='checkbox' id='orthopnea' name='symptoms'  value='183' /> orthopnea</label><br/>
+        <label><input type='checkbox' id='primigravida' name='symptoms'  value='184' /> primigravida</label><br/>
+        <label><input type='checkbox' id='frothy sputum' name='symptoms'  value='185' /> frothy sputum</label><br/>
+        <label><input type='checkbox' id='apyrexial' name='symptoms'  value='186' /> apyrexial</label><br/>
+        <label><input type='checkbox' id='aphagia' name='symptoms'  value='187' /> aphagia</label><br/>
+        <label><input type='checkbox' id='hyperemesis' name='symptoms'  value='188' /> hyperemesis</label><br/>
+        <label><input type='checkbox' id='hydropneumothorax' name='symptoms'  value='189' /> hydropneumothorax</label><br/>
+        <label><input type='checkbox' id='numbness' name='symptoms'  value='190' /> numbness</label><br/>
+        <label><input type='checkbox' id='hematuria' name='symptoms'  value='191' /> hematuria</label><br/>
+        <label><input type='checkbox' id='unwell' name='symptoms'  value='192' /> unwell</label><br/>
+        <label><input type='checkbox' id='splenomegaly' name='symptoms'  value='193' /> splenomegaly</label><br/>
+        <label><input type='checkbox' id='productive cough' name='symptoms'  value='194' /> productive cough</label><br/>
+        <label><input type='checkbox' id='chest discomfort' name='symptoms'  value='195' /> chest discomfort</label><br/>
+        <label><input type='checkbox' id='hypesthesia' name='symptoms'  value='196' /> hypesthesia</label><br/>
+        <label><input type='checkbox' id='stiffness' name='symptoms'  value='197' /> stiffness</label><br/>
+        <label><input type='checkbox' id='throbbing sensation quality' name='symptoms'  value='198' /> throbbing sensation quality</label><br/>
+        <label><input type='checkbox' id='weepiness' name='symptoms'  value='199' /> weepiness</label><br/>
+        <label><input type='checkbox' id='nausea' name='symptoms'  value='200' /> nausea</label><br/>
+        <label><input type='checkbox' id='sore to touch' name='symptoms'  value='201' /> sore to touch</label><br/>
+        <label><input type='checkbox' id='hyperkalemia' name='symptoms'  value='202' /> hyperkalemia</label><br/>
+        <label><input type='checkbox' id='thicken' name='symptoms'  value='203' /> thicken</label><br/>
+        <label><input type='checkbox' id='fremitus' name='symptoms'  value='204' /> fremitus</label><br/>
+        <label><input type='checkbox' id='angina pectoris' name='symptoms'  value='205' /> angina pectoris</label><br/>
+        <label><input type='checkbox' id='asterixis' name='symptoms'  value='206' /> asterixis</label><br/>
+        <label><input type='checkbox' id='night sweat' name='symptoms'  value='207' /> night sweat</label><br/>
+        <label><input type='checkbox' id='withdraw' name='symptoms'  value='208' /> withdraw</label><br/>
+        <label><input type='checkbox' id='clonus' name='symptoms'  value='209' /> clonus</label><br/>
+        <label><input type='checkbox' id='has religious belief' name='symptoms'  value='210' /> has religious belief</label><br/>
+        <label><input type='checkbox' id='qt interval prolonged' name='symptoms'  value='211' /> qt interval prolonged</label><br/>
+        <label><input type='checkbox' id='posturing' name='symptoms'  value='212' /> posturing</label><br/>
+        <label><input type='checkbox' id='speech slurred' name='symptoms'  value='213' /> speech slurred</label><br/>
+        <label><input type='checkbox' id='pruritus' name='symptoms'  value='214' /> pruritus</label><br/>
+        <label><input type='checkbox' id='hypotension' name='symptoms'  value='215' /> hypotension</label><br/>
+        <label><input type='checkbox' id='patient non compliance' name='symptoms'  value='216' /> patient non compliance</label><br/>
+        <label><input type='checkbox' id='dyspnea on exertion' name='symptoms'  value='217' /> dyspnea on exertion</label><br/>
+        <label><input type='checkbox' id='snore' name='symptoms'  value='218' /> snore</label><br/>
+        <label><input type='checkbox' id='enuresis' name='symptoms'  value='219' /> enuresis</label><br/>
+        <label><input type='checkbox' id='rest pain' name='symptoms'  value='220' /> rest pain</label><br/>
+        <label><input type='checkbox' id='urgency of micturition' name='symptoms'  value='221' /> urgency of micturition</label><br/>
+        <label><input type='checkbox' id='dysarthria' name='symptoms'  value='222' /> dysarthria</label><br/>
+        <label><input type='checkbox' id='facial paresis' name='symptoms'  value='223' /> facial paresis</label><br/>
+        <label><input type='checkbox' id='fall' name='symptoms'  value='224' /> fall</label><br/>
+        <label><input type='checkbox' id='hyperhidrosis disorder' name='symptoms'  value='225' /> hyperhidrosis disorder</label><br/>
+        <label><input type='checkbox' id='vomiting' name='symptoms'  value='226' /> vomiting</label><br/>
+        <label><input type='checkbox' id='suicidal' name='symptoms'  value='227' /> suicidal</label><br/>
+        <label><input type='checkbox' id='stupor' name='symptoms'  value='228' /> stupor</label><br/>
+        <label><input type='checkbox' id='haemoptysis' name='symptoms'  value='229' /> haemoptysis</label><br/>
+        <label><input type='checkbox' id='drool' name='symptoms'  value='230' /> drool</label><br/>
+        <label><input type='checkbox' id='tonic seizures' name='symptoms'  value='231' /> tonic seizures</label><br/>
+        <label><input type='checkbox' id='paresis' name='symptoms'  value='232' /> paresis</label><br/>
+        <label><input type='checkbox' id='prodrome' name='symptoms'  value='233' /> prodrome</label><br/>
+        <label><input type='checkbox' id='nonsmoker' name='symptoms'  value='234' /> nonsmoker</label><br/>
+        <label><input type='checkbox' id='dyspareunia' name='symptoms'  value='235' /> dyspareunia</label><br/>
+        <label><input type='checkbox' id='distended abdomen' name='symptoms'  value='236' /> distended abdomen</label><br/>
+        <label><input type='checkbox' id='slowing of urinary stream' name='symptoms'  value='237' /> slowing of urinary stream</label><br/>
+        <label><input type='checkbox' id='ascites' name='symptoms'  value='238' /> ascites</label><br/>
+        <label><input type='checkbox' id='cushingoid habitus' name='symptoms'  value='239' /> cushingoid habitus</label><br/>
+        <label><input type='checkbox' id='abdominal bloating' name='symptoms'  value='240' /> abdominal bloating</label><br/>
+        <label><input type='checkbox' id='colic abdominal' name='symptoms'  value='241' /> colic abdominal</label><br/>
+        <label><input type='checkbox' id='erythema' name='symptoms'  value='242' /> erythema</label><br/>
+        <label><input type='checkbox' id='polydypsia' name='symptoms'  value='243' /> polydypsia</label><br/>
+        <label><input type='checkbox' id='wheelchair bound' name='symptoms'  value='244' /> wheelchair bound</label><br/>
+        <label><input type='checkbox' id='urge incontinence' name='symptoms'  value='245' /> urge incontinence</label><br/>
+        <label><input type='checkbox' id='abnormally hard consistency' name='symptoms'  value='246' /> abnormally hard consistency</label><br/>
+        <label><input type='checkbox' id='moody' name='symptoms'  value='247' /> moody</label><br/>
+        <label><input type='checkbox' id='green sputum' name='symptoms'  value='248' /> green sputum</label><br/>
+        <label><input type='checkbox' id='cyanosis' name='symptoms'  value='249' /> cyanosis</label><br/>
+        <label><input type='checkbox' id='burning sensation' name='symptoms'  value='250' /> burning sensation</label><br/>
+        <label><input type='checkbox' id='uncoordination' name='symptoms'  value='251' /> uncoordination</label><br/>
+        <label><input type='checkbox' id='feels hot/feverish' name='symptoms'  value='252' /> feels hot/feverish</label><br/>
+        <label><input type='checkbox' id='food intolerance' name='symptoms'  value='253' /> food intolerance</label><br/>
+        <label><input type='checkbox' id='panic' name='symptoms'  value='254' /> panic</label><br/>
+        <label><input type='checkbox' id='verbal auditory hallucinations' name='symptoms'  value='255' /> verbal auditory hallucinations</label><br/>
+        <label><input type='checkbox' id='hunger' name='symptoms'  value='256' /> hunger</label><br/>
+        <label><input type='checkbox' id='disequilibrium' name='symptoms'  value='257' /> disequilibrium</label><br/>
+        <label><input type='checkbox' id='previous pregnancies 2' name='symptoms'  value='258' /> previous pregnancies 2</label><br/>
+        <label><input type='checkbox' id='heartburn' name='symptoms'  value='259' /> heartburn</label><br/>
+        <label><input type='checkbox' id='nausea and vomiting' name='symptoms'  value='260' /> nausea and vomiting</label><br/>
+        <label><input type='checkbox' id='abortion' name='symptoms'  value='261' /> abortion</label><br/>
+        <label><input type='checkbox' id='posterior rhinorrhea' name='symptoms'  value='262' /> posterior rhinorrhea</label><br/>
+        <label><input type='checkbox' id='anorexia' name='symptoms'  value='263' /> anorexia</label><br/>
+        <label><input type='checkbox' id='underweight' name='symptoms'  value='264' /> underweight</label><br/>
+        <label><input type='checkbox' id='diarrhea' name='symptoms'  value='265' /> diarrhea</label><br/>
+        <label><input type='checkbox' id='difficulty' name='symptoms'  value='266' /> difficulty</label><br/>
+        <label><input type='checkbox' id='shooting pain' name='symptoms'  value='267' /> shooting pain</label><br/>
+        <label><input type='checkbox' id='behavior hyperactive' name='symptoms'  value='268' /> behavior hyperactive</label><br/>
+        <label><input type='checkbox' id='decreased translucency' name='symptoms'  value='269' /> decreased translucency</label><br/>
+        <label><input type='checkbox' id='transaminitis' name='symptoms'  value='270' /> transaminitis</label><br/>
+        <label><input type='checkbox' id='ache' name='symptoms'  value='271' /> ache</label><br/>
+        <label><input type='checkbox' id='elation' name='symptoms'  value='272' /> elation</label><br/>
+        <label><input type='checkbox' id='sedentary' name='symptoms'  value='273' /> sedentary</label><br/>
+        <label><input type='checkbox' id='rolling of eyes' name='symptoms'  value='274' /> rolling of eyes</label><br/>
+        <label><input type='checkbox' id='floppy' name='symptoms'  value='275' /> floppy</label><br/>
+        <label><input type='checkbox' id='bleeding of vagina' name='symptoms'  value='276' /> bleeding of vagina</label><br/>
+        <label><input type='checkbox' id='hallucinations auditory' name='symptoms'  value='277' /> hallucinations auditory</label><br/>
+        <label><input type='checkbox' id='charleyhorse' name='symptoms'  value='278' /> charleyhorse</label><br/>
+        <label><input type='checkbox' id='cachexia' name='symptoms'  value='279' /> cachexia</label><br/>
+        <label><input type='checkbox' id='hoarseness' name='symptoms'  value='280' /> hoarseness</label><br/>
+        <label><input type='checkbox' id='estrogen use' name='symptoms'  value='281' /> estrogen use</label><br/>
+        <label><input type='checkbox' id='red blotches' name='symptoms'  value='282' /> red blotches</label><br/>
+        <label><input type='checkbox' id='pneumatouria' name='symptoms'  value='283' /> pneumatouria</label><br/>
+        <label><input type='checkbox' id='verbally abusive behavior' name='symptoms'  value='284' /> verbally abusive behavior</label><br/>
+        <label><input type='checkbox' id='emphysematous change' name='symptoms'  value='285' /> emphysematous change</label><br/>
+        <label><input type='checkbox' id='sweating increased' name='symptoms'  value='286' /> sweating increased</label><br/>
+        <label><input type='checkbox' id='pain back' name='symptoms'  value='287' /> pain back</label><br/>
+        <label><input type='checkbox' id='hypocalcemia result' name='symptoms'  value='288' /> hypocalcemia result</label><br/>
+        <label><input type='checkbox' id='tenesmus' name='symptoms'  value='289' /> tenesmus</label><br/>
+        <label><input type='checkbox' id='neck stiffness' name='symptoms'  value='290' /> neck stiffness</label><br/>
+        <label><input type='checkbox' id='spontaneous rupture of membranes' name='symptoms'  value='291' /> spontaneous rupture of membranes</label><br/>
+        <label><input type='checkbox' id='dysesthesia' name='symptoms'  value='292' /> dysesthesia</label><br/>
+        <label><input type='checkbox' id='choke' name='symptoms'  value='293' /> choke</label><br/>
+        <label><input type='checkbox' id='pressure chest' name='symptoms'  value='294' /> pressure chest</label><br/>
+        <label><input type='checkbox' id='systolic murmur' name='symptoms'  value='295' /> systolic murmur</label><br/>
+        <label><input type='checkbox' id='homicidal thoughts' name='symptoms'  value='296' /> homicidal thoughts</label><br/>
+        <label><input type='checkbox' id='drowsiness' name='symptoms'  value='297' /> drowsiness</label><br/>
+        <label><input type='checkbox' id='todd paralysis' name='symptoms'  value='298' /> todd paralysis</label><br/>
+        <label><input type='checkbox' id='stridor' name='symptoms'  value='299' /> stridor</label><br/>
+        <label><input type='checkbox' id='macerated skin' name='symptoms'  value='300' /> macerated skin</label><br/>
+        <label><input type='checkbox' id='rigor - temperature-associated observation' name='symptoms'  value='301' /> rigor - temperature-associated observation</label><br/>
+        <label><input type='checkbox' id='hyperacusis' name='symptoms'  value='302' /> hyperacusis</label><br/>
+        <label><input type='checkbox' id='underweight' name='symptoms'  value='303' /> underweight</label><br/>
+        <label><input type='checkbox' id='soft tissue swelling' name='symptoms'  value='304' /> soft tissue swelling</label><br/>
+        <label><input type='checkbox' id='pericardial friction rub' name='symptoms'  value='305' /> pericardial friction rub</label><br/>
+        <label><input type='checkbox' id='hypoxemia' name='symptoms'  value='306' /> hypoxemia</label><br/>
+        <label><input type='checkbox' id='chill' name='symptoms'  value='307' /> chill</label><br/>
+        <label><input type='checkbox' id='hypoalbuminemia' name='symptoms'  value='308' /> hypoalbuminemia</label><br/>
+        <label><input type='checkbox' id='tremor resting' name='symptoms'  value='309' /> tremor resting</label><br/>
+        <label><input type='checkbox' id='ataxia' name='symptoms'  value='310' /> ataxia</label><br/>
+        <label><input type='checkbox' id='bruit' name='symptoms'  value='311' /> bruit</label><br/>
+        <label><input type='checkbox' id='alcoholic withdrawal symptoms' name='symptoms'  value='312' /> alcoholic withdrawal symptoms</label><br/>
+        <label><input type='checkbox' id='consciousness clear' name='symptoms'  value='313' /> consciousness clear</label><br/>
+        <label><input type='checkbox' id='fecaluria' name='symptoms'  value='314' /> fecaluria</label><br/>
+        <label><input type='checkbox' id='milky' name='symptoms'  value='315' /> milky</label><br/>
+        <label><input type='checkbox' id='arthralgia' name='symptoms'  value='316' /> arthralgia</label><br/>
+        <label><input type='checkbox' id='guaiac positive' name='symptoms'  value='317' /> guaiac positive</label><br/>
+        <label><input type='checkbox' id='unable to concentrate' name='symptoms'  value='318' /> unable to concentrate</label><br/>
+        <label><input type='checkbox' id='vertigo' name='symptoms'  value='319' /> vertigo</label><br/>
+        <label><input type='checkbox' id='presence of q wave' name='symptoms'  value='320' /> presence of q wave</label><br/>
+        <label><input type='checkbox' id='irritable mood' name='symptoms'  value='321' /> irritable mood</label><br/>
+        <label><input type='checkbox' id='monoclonal' name='symptoms'  value='322' /> monoclonal</label><br/>
+        <label><input type='checkbox' id='loose associations' name='symptoms'  value='323' /> loose associations</label><br/>
+        <label><input type='checkbox' id='extrapyramidal sign' name='symptoms'  value='324' /> extrapyramidal sign</label><br/>
+        <label><input type='checkbox' id='st segment depression' name='symptoms'  value='325' /> st segment depression</label><br/>
+        <label><input type='checkbox' id='hallucinations visual' name='symptoms'  value='326' /> hallucinations visual</label><br/>
+        <label><input type='checkbox' id='photopsia' name='symptoms'  value='327' /> photopsia</label><br/>
+        <label><input type='checkbox' id='pustule' name='symptoms'  value='328' /> pustule</label><br/>
+        <label><input type='checkbox' id='seizure' name='symptoms'  value='329' /> seizure</label><br/>
+        <label><input type='checkbox' id='snuffle' name='symptoms'  value='330' /> snuffle</label><br/>
+        <label><input type='checkbox' id='malaise' name='symptoms'  value='331' /> malaise</label><br/>
+        <label><input type='checkbox' id='sensory discomfort' name='symptoms'  value='332' /> sensory discomfort</label><br/>
+        <label><input type='checkbox' id='exhaustion' name='symptoms'  value='333' /> exhaustion</label><br/>
+        <label><input type='checkbox' id='pain in lower limb' name='symptoms'  value='334' /> pain in lower limb</label><br/>
+        <label><input type='checkbox' id='stuffy nose' name='symptoms'  value='335' /> stuffy nose</label><br/>
+        <label><input type='checkbox' id='oliguria' name='symptoms'  value='336' /> oliguria</label><br/>
+        <label><input type='checkbox' id='impaired cognition' name='symptoms'  value='337' /> impaired cognition</label><br/>
+        <label><input type='checkbox' id='adverse reaction' name='symptoms'  value='338' /> adverse reaction</label><br/>
+        <label><input type='checkbox' id='Stahli's line' name='symptoms'  value='339' /> Stahli's line</label><br/>
+        <label><input type='checkbox' id='para 1' name='symptoms'  value='340' /> para 1</label><br/>
+        <label><input type='checkbox' id='coordination abnormal' name='symptoms'  value='341' /> coordination abnormal</label><br/>
+        <label><input type='checkbox' id='throat sore' name='symptoms'  value='342' /> throat sore</label><br/>
+        <label><input type='checkbox' id='cystic lesion' name='symptoms'  value='343' /> cystic lesion</label><br/>
+        <label><input type='checkbox' id='tumor cell invasion' name='symptoms'  value='344' /> tumor cell invasion</label><br/>
+        <label><input type='checkbox' id='hemiplegia' name='symptoms'  value='345' /> hemiplegia</label><br/>
+        <label><input type='checkbox' id='sniffle' name='symptoms'  value='346' /> sniffle</label><br/>
+        <label><input type='checkbox' id='superimposition' name='symptoms'  value='347' /> superimposition</label><br/>
+        <label><input type='checkbox' id='distress respiratory' name='symptoms'  value='348' /> distress respiratory</label><br/>
+        <label><input type='checkbox' id='unsteady gait' name='symptoms'  value='349' /> unsteady gait</label><br/>
+        <label><input type='checkbox' id='catatonia' name='symptoms'  value='350' /> catatonia</label><br/>
+        <label><input type='checkbox' id='bradycardia' name='symptoms'  value='351' /> bradycardia</label><br/>
+        <label><input type='checkbox' id='regurgitates after swallowing' name='symptoms'  value='352' /> regurgitates after swallowing</label><br/>
+        <label><input type='checkbox' id='spasm' name='symptoms'  value='353' /> spasm</label><br/>
+        <label><input type='checkbox' id='difficulty passing urine' name='symptoms'  value='354' /> difficulty passing urine</label><br/>
+        <label><input type='checkbox' id='abnormal sensation' name='symptoms'  value='355' /> abnormal sensation</label><br/>
+        <label><input type='checkbox' id='sciatica' name='symptoms'  value='356' /> sciatica</label><br/>
+        <label><input type='checkbox' id='paraparesis' name='symptoms'  value='357' /> paraparesis</label><br/>
+        <label><input type='checkbox' id='prostate tender' name='symptoms'  value='358' /> prostate tender</label><br/>
+        <label><input type='checkbox' id='hypotonic' name='symptoms'  value='359' /> hypotonic</label><br/>
+        <label><input type='checkbox' id='gurgle' name='symptoms'  value='360' /> gurgle</label><br/>
+        <label><input type='checkbox' id='tachypnea' name='symptoms'  value='361' /> tachypnea</label><br/>
+        <label><input type='checkbox' id='labored breathing' name='symptoms'  value='362' /> labored breathing</label><br/>
+        <label><input type='checkbox' id='formication' name='symptoms'  value='363' /> formication</label><br/>
+        <label><input type='checkbox' id='syncope' name='symptoms'  value='364' /> syncope</label><br/>
+        <label><input type='checkbox' id='mass in breast' name='symptoms'  value='365' /> mass in breast</label><br/>
+        <label><input type='checkbox' id='bowel sounds decreased' name='symptoms'  value='366' /> bowel sounds decreased</label><br/>
+        <label><input type='checkbox' id='rhd positive' name='symptoms'  value='367' /> rhd positive</label><br/>
+        <label><input type='checkbox' id='renal angle tenderness' name='symptoms'  value='368' /> renal angle tenderness</label><br/>
+        <label><input type='checkbox' id='debilitation' name='symptoms'  value='369' /> debilitation</label><br/>
+        <label><input type='checkbox' id='barking cough' name='symptoms'  value='370' /> barking cough</label><br/>
+        <label><input type='checkbox' id='sleepy' name='symptoms'  value='371' /> sleepy</label><br/>
+        <label><input type='checkbox' id='poor feeding' name='symptoms'  value='372' /> poor feeding</label><br/>
+        <label><input type='checkbox' id='proteinemia' name='symptoms'  value='373' /> proteinemia</label><br/>
+        <label><input type='checkbox' id='hypersomnolence' name='symptoms'  value='374' /> hypersomnolence</label><br/>
+        <label><input type='checkbox' id='feeling suicidal' name='symptoms'  value='375' /> feeling suicidal</label><br/>
+        <label><input type='checkbox' id='polyuria' name='symptoms'  value='376' /> polyuria</label><br/>
+        <label><input type='checkbox' id='metastatic lesion' name='symptoms'  value='377' /> metastatic lesion</label><br/>
+        <label><input type='checkbox' id='lung nodule' name='symptoms'  value='378' /> lung nodule</label><br/>
+        <label><input type='checkbox' id='tinnitus' name='symptoms'  value='379' /> tinnitus</label><br/>
+        <label><input type='checkbox' id='lip smacking' name='symptoms'  value='380' /> lip smacking</label><br/>
+        <label><input type='checkbox' id='dullness' name='symptoms'  value='381' /> dullness</label><br/>
+        <label><input type='checkbox' id='hepatosplenomegaly' name='symptoms'  value='382' /> hepatosplenomegaly</label><br/>
+        <label><input type='checkbox' id='gasping for breath' name='symptoms'  value='383' /> gasping for breath</label><br/>
+        <label><input type='checkbox' id='disturbed family' name='symptoms'  value='384' /> disturbed family</label><br/>
+        <label><input type='checkbox' id='decreased stool caliber' name='symptoms'  value='385' /> decreased stool caliber</label><br/>
+        <label><input type='checkbox' id='painful swallowing' name='symptoms'  value='386' /> painful swallowing</label><br/>
+        <label><input type='checkbox' id='poor dentition' name='symptoms'  value='387' /> poor dentition</label><br/>
+        <label><input type='checkbox' id='paresthesia' name='symptoms'  value='388' /> paresthesia</label><br/>
+        <label><input type='checkbox' id='low back pain' name='symptoms'  value='389' /> low back pain</label><br/>
+        <label><input type='checkbox' id='catching breath' name='symptoms'  value='390' /> catching breath</label><br/>
+        <label><input type='checkbox' id='pulsus paradoxus' name='symptoms'  value='391' /> pulsus paradoxus</label><br/>
+        <label><input type='checkbox' id='fatigability' name='symptoms'  value='392' /> fatigability</label><br/>
+        <label><input type='checkbox' id='pleuritic pain' name='symptoms'  value='393' /> pleuritic pain</label><br/>
+        <label><input type='checkbox' id='flatulence' name='symptoms'  value='394' /> flatulence</label><br/>
+        <label><input type='checkbox' id='myalgia' name='symptoms'  value='395' /> myalgia</label><br/>
+        <label><input type='checkbox' id='breath-holding spell' name='symptoms'  value='396' /> breath-holding spell</label><br/>
+        <label><input type='checkbox' id='para 2' name='symptoms'  value='397' /> para 2</label><br/>
+        <label><input type='checkbox' id='pain' name='symptoms'  value='398' /> pain</label><br/>
+        <label><input type='checkbox' id='numbness of hand' name='symptoms'  value='399' /> numbness of hand</label><br/>
+        <label><input type='checkbox' id='Murphy's sign' name='symptoms'  value='400' /> Murphy's sign</label><br/>
+        <label><input type='checkbox' id='air fluid level' name='symptoms'  value='401' /> air fluid level</label><br/>
+        <label><input type='checkbox' id='muscle hypotonia' name='symptoms'  value='402' /> muscle hypotonia</label><br/>
+        <label><input type='checkbox' id='cough' name='symptoms'  value='403' /> cough</label><br/>
+        <label><input type='checkbox' id='weight gain' name='symptoms'  value='404' /> weight gain</label><br/>
+        <label><input type='checkbox' id='hot flush' name='symptoms'  value='405' /> hot flush</label><br/>
+        <label><input type='checkbox' id='blackout' name='symptoms'  value='406' /> blackout</label><br/>
+
+        <select name="doctor_list">
+            {% for row in data %}
+                <option value="{{row[0]}}">{{row[1]}}</option>
+            {%endfor%}
+        </select>
+        <input type="submit" value="submit"/>
+    </form>
+{% else %}
+<script>
+    alert('Please Log in')
+    location.href = 'patient-auth'
+</script>
+{% endif %}
+    
+</body>
+</html>

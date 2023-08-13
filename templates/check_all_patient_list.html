@@ -1,0 +1,30 @@
+{% if session.doctor_email %}
+    You are Register {{ session.doctor_username }} <a href="/doctor-auth">logout</a>
+    <table border='1'>
+        <tr>
+            <th>Patient Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Weight</th>
+            <th>Total Pregnancy</th>
+            <th>Blood Group</th>
+            <th>Contact Number</th>
+            <th>Symptoms</th>
+            <th>Predicted Diseases</th>
+            <th>Checking Time</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                {% for column in row %}
+                    <td>{{column}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+{% else %}
+<script>
+    alert('Please Log in')
+    location.href = 'doctor-auth'
+</script>
+{% endif %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/create-patient" method="POST">
+        Name : <input type="text" name="name" placeholder="Enter name" required /><br>
+        Email : <input type="email" name="email" placeholder="Enter name" required /><br>
+        Date of Birth : <input type="date" name="dob" required /><br>
+        Gender : <input type="radio"  name="gender" value="Male" required/>Male
+        <input type="radio"  name="gender" value="Female" required/>Female
+        <input type="radio"  name="gender" value="Other" required/>Pride<br>
+        Weight : <input type="number" name="weight" min="1" max="999" required /> K.g.<br/>
+        No of pregnancy : <input type="number" name="pregnancy" min="0" max="100" required /> ( select 0 is not applicable )<br/>
+        Blood Group : 
+        <select name="blood_group">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>        <br>
+        Previous Health Issues : 
+        <input type="text" name="p_h_issue" required/><br>
+        Address : <textarea id="add" ></textarea>
+        <input type="text" name="address" /><br>
+        <script>function addAddress(){document.getElementsByName("address")[0].value = document.getElementById("add").innerHTML; alert(document.getElementById("add").innerHTML); return false;}</script>
+        Phone No : <input type="tel" name="tel" placeholder="Enter Phone Number" required><br>
+        Password : <input type="password" name="password" placeholder="Must contain at least one lowercase letter, one uppercase letter, one digit, and one special character, and must be at least 12 characters long" required/><br>
+        <input type="submit" value="Submit" onclick="addAddress()"/>
+    </form>
+    {%if result == True%}
+        <!-- <input type="hidden" id="msg" value="{{msg}}" /> -->
+        <script>
+            // let msg = document.getElementById("msg").value;
+            alert('{{msg}}');
+        </script>
+    {%endif%}
+
+</body>
+</html>

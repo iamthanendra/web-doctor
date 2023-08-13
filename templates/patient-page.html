@@ -1,0 +1,16 @@
+{% if session.patient_email %}
+You are Register {{ session.patient_username }} <a href="/logout-patients">logout</a>.
+<h1>Name : {{username}}</h1>
+<h1>Email : {{email}}</h1>
+<h1>Date of Birth : {{dob}}</h1>
+<h1>Gender : {{gender}}</h1>
+<h1>Weight : {{weight}} K.G. </h1>
+<h1>Mobile No : {{tel}}</h1>
+<a href="check-health-pateint"><button>Check Your Health</button></a>
+<a href="patient-history"><button>Check Your History</button></a>
+{% else %}
+<script>
+    alert('Please Log in')
+    location.href = 'patient-auth'
+</script>
+{% endif %}

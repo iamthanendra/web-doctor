@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/authenticate-patient" method="post" >
+        Enter Email : <input type="email" name="email" placeholder="Enter Your Email id" required/><br/>
+        Enter Password : <input type="password" name="password" placeholder="Enter Your Password" required/><br/>
+        <input type="submit" value="Log in" />
+    </form>
+
+    <a href="patient-registration"><button>Create Account</button></a>
+
+    {%if result == True %}
+    <script>
+        alert('Invalid Id/ Password')
+    </script>
+    {%endif%}
+</body>
+</html>

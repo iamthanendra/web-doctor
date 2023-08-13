@@ -1,0 +1,23 @@
+AI Doctor
+
+index
+doctor_data database			- done
+doctor login webpage structure		- done
+doctor login backend			- done
+doctor welcome webpage structure	- done
+patient welcome session tracking	- done
+patient logout session tracking		- done
+doctor registration webpage		- done
+doctor registration backend		- done
+
+
+
+patient_data database			- done
+patient login webpage structure		- done
+patient login backend			- done
+patient welcome webpage structure	- done
+patient welcome session tracking	- done
+patient logout session tracking		- done
+patient registration webpage structure	- done
+patient registration backend		- done
+database credentials			- done

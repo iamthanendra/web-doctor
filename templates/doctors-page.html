@@ -1,0 +1,11 @@
+{% if session.doctor_email %}
+    You are Register {{ session.doctor_username }} <a href="/doctor-auth">logout</a>
+
+    <a href="Check-All-Patient-List"><button>Check All Patient History</button></a>
+
+{% else %}
+<script>
+    alert('Please Log in')
+    location.href = 'doctor-auth'
+</script>
+{% endif %}

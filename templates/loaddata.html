@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- fa icon  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" 
+      type="image/png" 
+      href="http://example.com/myicon.png">
+    <title>All Data</title>
+    
+    <!-- Ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h5>Filter</h5>
+    <!-- <form action="/filter" method="post"> -->
+        Graduation:
+        {% for data in graduation_data %}
+            <input type="checkbox" name="graduation" value="{{data[0]}}" /> {{data[0]}}
+        {%endfor%}
+        <br/>
+
+        Any Training:
+        {% for data in training_data %}
+            <input type="checkbox" name="training" value="{{data[0]}}"/> {{data[0]}}
+        {%endfor%}
+        <br/>
+
+        Any Certificate:
+        {% for data in certificate_data %}
+            <input type="checkbox" name="certificate" value="{{data[0]}}"/> {{data[0]}}
+        {%endfor%}
+        <br/>
+        
+        Any Experience:
+        {% for data in experience_data %}
+            <input type="checkbox" name="experience" value="{{data[0]}}"/> {{data[0]}}
+        {%endfor%}
+        <br/>
+        
+        User Level:
+        {% for data in user_level_data %}
+            <input type="checkbox" name="user_level" value="{{data[0]}}"/> {{data[0]}}
+        {%endfor%}
+        <br/>
+        
+        Skills:
+        {% for data in  skills_data%}
+            <input type="checkbox" name="skills" value="{{data}}"/> {{data}}
+        {%endfor%}
+        <br/>
+        <button class="btn btn-danger" onclick="filter()">Filter</button>
+        
+        
+    <!-- </form> -->
+    <table id="user_data" class="table table-responsive table-overflow-x table-bordered table-striped" style="max-width:800px; overflow-x: auto;">
+        <thead>
+        <tr>
+            <div class="mb-3 form-inline input-group">
+                
+                <input type="text" name="search_item" placeholder="Search" class="form-control" />
+                <button class="btn btn-primary">
+                    <i class="fa fa-filter"></i>
+                  </button>
+                  <form action="#">
+                <input type="submit" value="Search" class="btn btn-success">
+                </form>
+            </div>
+        </tr>
+    </thead>
+    <tbody id="user_data_body">
+        <tr>
+            <th>Id</th>
+            <th>Name </th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Graduation</th>
+            <th>Any Training</th>
+            <th>Any Certificate</th>
+            <th>Any Experience</th>
+            <th>Uploading Time</th>
+            <th>Total Pages</th>
+            <th>User Level</th>
+            <th>Skills</th>
+            <th>Resume</th>
+            <th>Select</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td>{{ row[7] }}</td>
+                <td>{{ row[8] }}</td>
+                <td>{{ row[9] }}</td>
+                <td>{{ row[10] }}</td>
+                <td>{{ row[11] }}</td>
+                <td><button class="btn btn-success"><a href="{{ row[12] }}" target="_blank" style="color: wheat;">Open</a></button></td>
+                <td> <input type="checkbox" name="candidates" value="{{row[0]}}"/></td>
+            </tr>
+        {%endfor%}
+    </tbody>
+    <tfoot>
+        <button class="btn btn-success" onclick="DownloadFile()">Save As CSV</button>
+        <button class="btn btn-success" onclick="compare_candidate()">Compare</button>
+    </tfoot>
+    </table>
+
+    <!--Dropdowns-->
+    <select id="users_name"></select>
+
+    <script>
+        function filter(){
+        var selectedValues = [];
+        var checkboxes = document.querySelectorAll("input[type='checkbox']");
+        for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            selectedValues.push(checkboxes[i].value);
+            }
+        }
+
+        // Get the selected values.
+        var selectedValues = [];
+        var checkboxes = document.querySelectorAll("input[type='checkbox']");
+        var categories = {};
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+            var name = checkboxes[i].getAttribute("name");
+            if ( name == 'candidates') continue;
+            var value = checkboxes[i].value;
+            var category = categories[name] || [];
+            category.push(value);
+            categories[name] = category;
+            }
+        }
+        query = ""
+        for(label in categories)
+        {
+            for(index in categories[label])
+            query += `&${label}=${categories[label][index]}`;
+        }
+        console.log(query)
+        // Log the selected values.
+        console.log(categories);
+        console.log(JSON.stringify(categories));
+
+
+        console.log(document.getElementsByName("search_item")[0].value)
+
+        query = "search_item="+document.getElementsByName("search_item")[0].value + query;
+        
+        // Send the selected values using Ajax.
+        var xhr = new XMLHttpRequest();
+        // xhr.open("GET", "/filter?"+query);
+        // xhr.setRequestHeader("Content-Type", "application/json");
+        console.log(selectedValues);
+        console.log(JSON.stringify(selectedValues));
+        // xhr.send(JSON.stringify(categories));
+        // xhr.send();
+
+        // // Create an XMLHttpRequest object.
+        // var xhr = new XMLHttpRequest();
+
+        // // Set the request method and URL.
+        // xhr.open("GET", "/filter");
+
+        // // Set the request headers.
+        // xhr.setRequestHeader("Content-Type", "application/json");
+
+        // // Send the request.
+        // xhr.send();
+
+        // Handle the response.
+        xhr.onload = function() {
+        if (xhr.status === 200) {
+            // The request was successful.
+            // var categories = JSON.parse(xhr.responseText);
+            var categories = xhr.responseText;
+            console.log(categories);
+            fill_data(xhr.responseText);
+        } else {
+            // The request failed.
+            console.log("Request failed: " + xhr.status);
+        }
+        };
+        
+        xhr.open("GET", "/filter?"+query);
+        xhr.send();
+    }
+    function fill_data(data)
+    {
+        document.getElementById("user_data_body").innerHTML = data
+    }   
+
+    
+    </script>
+<embed src="../Uploaded_Resumes/data-scientist-1559725114.pdf" type="application/pdf" width="30%" height="500px">
+<script type="text/javascript">
+    function DownloadFile() {
+    // Set the File URL.
+    var url = "/download";
+    // Create XMLHTTP Request.
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.responseType = "arraybuffer";
+    xhr.onload = function() {
+    // Get the file data.
+    var data = xhr.response;
+    // Create a blob from the file data.
+    var blob = new Blob([data], {type: "application/octet-stream"});
+    // Download the file.
+    var link = document.createElement("a");
+    link.href = window.URL.createObjectURL(blob);
+    link.download = "user_data.csv";
+    link.click();
+    };
+    xhr.send();
+    }
+    </script>
+
+    <script>
+        
+        function compare_candidate(){
+
+        // Get the selected values.
+        var selectedValues = [];
+        var checkboxes = document.querySelectorAll("input[type='checkbox']");
+        var categories = {};
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+            var name = checkboxes[i].getAttribute("name");
+            if ( name != 'candidates') continue;
+            var value = checkboxes[i].value;
+            var category = categories[name] || [];
+            category.push(value);
+            categories[name] = category;
+            }
+        }
+        query = ""
+        for(label in categories)
+        {
+            for(index in categories[label])
+            query += `&${label}=${categories[label][index]}`;
+        }
+        console.log(query)
+        // Log the selected values.
+        console.log(categories);
+        console.log(JSON.stringify(categories));
+        
+        // Send the selected values using Ajax.
+        var xhr = new XMLHttpRequest();
+        // xhr.open("GET", "/filter?"+query);
+        // xhr.setRequestHeader("Content-Type", "application/json");
+        console.log(selectedValues);
+        console.log(JSON.stringify(selectedValues));
+        // xhr.send(JSON.stringify(categories));
+        // xhr.send();
+
+        // // Create an XMLHttpRequest object.
+        // var xhr = new XMLHttpRequest();
+
+        // // Set the request method and URL.
+        // xhr.open("GET", "/filter");
+
+        // // Set the request headers.
+        // xhr.setRequestHeader("Content-Type", "application/json");
+
+        // // Send the request.
+        // xhr.send();
+
+        // Handle the response.
+        xhr.onload = function() {
+        if (xhr.status === 200) {
+            // The request was successful.
+            // var categories = JSON.parse(xhr.responseText);
+            var categories = xhr.responseText;
+            console.log(categories);
+            alert(xhr.responseText)
+            fill_data(xhr.responseText);
+        } else {
+            // The request failed.
+            console.log("Request failed: " + xhr.status);
+        }
+        };
+        
+        xhr.open("GET", "/compare_candidate?"+query);
+        xhr.send();
+    }
+
+    </script>
+    <script>
+        //Addidng Users Dropdownlist
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log(xhr.responseText);
+            document.getElementById("users_name").innerHTML = xhr.responseText;
+        } else {
+            // The request failed.
+            console.log("Request failed: " + xhr.status);
+        }
+        };
+        
+        xhr.open("GET", "/user_dropdown");
+        xhr.send();
+
+    </script>
+    <script>
+        //Showing Plotting of Data Using Matplotlib
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log(xhr.responseText);
+        } else {
+            // The request failed.
+            console.log("Request failed: " + xhr.status);
+        }
+        };
+        
+        xhr.open("GET", "/plot_graph");
+        xhr.send();
+
+    </script>
+</body>
+</html>

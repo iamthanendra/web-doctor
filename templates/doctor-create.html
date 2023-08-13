@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/create-doctor" method="post">
+        <input type="text" placeholder="Enter Name" name="username" required/><br>
+        <input type="email" placeholder="Enter Email" name="email" required/><br>
+        <input type="date" placeholder="Enter DOB" name="dob" required/><br>
+        Sex : <input type="radio"  name="gender" value="Male" required/>Male
+        <input type="radio"  name="gender" value="Female" required/>Female
+        <input type="radio"  name="gender" value="Other" required/>Pride<br>
+        Specialization : 
+        <select name="specialization">
+            <option value = "Anatomical Pathology">Anatomical Pathology</option>
+            <option value = "Anesthesiology">Anesthesiology</option>
+            <option value = "Cardiology">Cardiology</option>
+            <option value = "Cardiovascular/Thoracic Surgery">Cardiovascular/Thoracic Surgery</option>
+            <option value = "Clinical Immunology/Allergy">Clinical Immunology/Allergy</option>
+            <option value = "Critical Care Medicine">Critical Care Medicine</option>
+            <option value = "Dermatology">Dermatology</option>
+            <option value = "Diagonostic Radiology">Diagonostic Radiology</option>
+            <option value = "Emergency Medicine">Emergency Medicine</option>
+            <option value = "Endocrinology and Metabolism">Endocrinology and Metabolism</option>
+            <option value = "Family Medicine">Family Medicine</option>
+            <option value = "Gastronoentrology">Gastronoentrology</option>
+            <option value = "General Internal Medicine">General Internal Medicine</option>
+            <option value = "General Surgery">General Surgery</option>
+            <option value = "General/Clinical pathology">General/Clinical pathology</option>
+            <option value = "Geriatric Medicine ">Geriatric Medicine</option>
+            <option value = "Hematology">Hematology</option>
+            <option value = "Medical Biochemistry">Medical Biochemistry</option>
+            <option value = "Medical Genetics">Medical Genetics</option>
+            <option value = "Medical Microbiology and Infectious Disease">Medical Microbiology and Infectious Disease</option>
+            <option value = "Medical Oncology">Medical Oncology</option>
+            <option value = "Nephrology">Nephrology</option>
+            <option value = "Neurology">Neurology</option>
+            <option value = "Neuosurgery">Neurosurgery</option>
+            <option value = "Nuclear Medicine">Nuclear Medicine</option>
+            <option value = "Obstetrics/Gynecology">Obstetrics/Gynecology</option>
+            <option value = "Occupational Medicine">Occupational Medicine</option>
+            <option value = "Opthalamology">Opthalamology</option>
+            <option value = "Orthopedic Surgery">Orthopedic Surgery</option>
+            <option value = "Otolaryngology">Otolaryngology</option>
+            <option value = "Pediatrics">Pediatrics</option>
+            <option value = "Physical Medicine and Rehabilitation">Physical Medicine and Rehabilitation</option>
+            <option value = "Plastic Surgery">Plastic Surgery</option>
+            <option value = "Psychaiatry">Psychiatry</option>
+            <option value = "Public Health and Preventive Medicine">Public Health and Preventive Medicine</option>
+            <option value = "Radiation Oncology">Radiation Oncology</option>
+            <option value = "Respirology">Respirology</option>
+            <option value = "Rheumatology">Rheumatology</option>
+            <option value = "Urology">Urology</option>
+        </select><br>
+        <input type="tel" name="tel" placeholder="Enter Phone Number" required><br>
+        <input type="text" name="reg_no" placeholder="Enter Registration No" required/><br>
+        Qualification:
+        <select name="qualification">
+            <option value="MBBS">MBBS</option>
+            <option value="MD">MD</option>
+            <option value="SD">SD</option>
+        </select><br>
+        <input type="password" id="password" name="password"  placeholder="Must contain at least one lowercase letter, one uppercase letter, one digit, and one special character, and must be at least 12 characters long" required><br>
+        <input type="submit" value="Submit" />
+
+    </form>
+
+    {%if result == True%}
+        <!-- <input type="hidden" id="msg" value="{{msg}}" /> -->
+        <script>
+            // let msg = document.getElementById("msg").value;
+            alert('{{msg}}');
+        </script>
+    {%endif%}
+</body>
+</html>
